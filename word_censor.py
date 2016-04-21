@@ -38,7 +38,7 @@ def main():
 	records = []
 
 	#initializing data from json array
-	file = open("censor_words.json")
+	file = open("blacklist.json")
 	data = json.load(file)
 
 	#getting the source
@@ -76,7 +76,7 @@ def main():
 	print "censored the document : "+source_fileName
 	#for debugging only
 	#print records
-	print len(records),"words removed."
+	print len(records),"word(s) removed."
 
 
 if __name__ == "__main__":
