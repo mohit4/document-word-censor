@@ -20,3 +20,4 @@ Eg. to censor contents of **Fifty_shades_of_Grey.txt**, the command will look li
 * Need to add command line options using python 'getopt' module
 * Need to improve the **assistance** problem,
 (the text 'assistance' becomes 'CENSOREDistance', if you know what I mean)
+* Need to add a config file for debugging options
