@@ -9,27 +9,27 @@ import sys
 records = []
 data = None
 
-def sensor_func(source_text):
+def censor_func(source_text):
 	global records
 	global data
-	sensored_text = ""
+	censored_text = ""
 
 	temp = ""
 	for x in xrange(len(source_text)):
 		c = source_text[x]
 		if not c.isalnum():
-			sensored_text+=temp
-			sensored_text+=c
+			censored_text+=temp
+			censored_text+=c
 			temp = ""
 		else:
 			temp+=c
 
 		if temp.lower() in data["words"]:
-			sensored_text+="SENSORED"
+			censored_text+="CENSORED"
 			records.append(temp)
 			temp = ""
 
-	return sensored_text
+	return censored_text
 
 def main():
 	
@@ -38,7 +38,7 @@ def main():
 	records = []
 
 	#initializing data from json array
-	file = open("sensor_words.json")
+	file = open("censor_words.json")
 	data = json.load(file)
 
 	#getting the source
@@ -64,7 +64,7 @@ def main():
 	#for debugging only
 	#pprint(source_text)
 
-	res_text = sensor_func(source_text)
+	res_text = censor_func(source_text)
 	destin_fileObj = open(destin_fileName,"w")
 	destin_fileObj.write(res_text)
 	destin_fileObj.close()
@@ -73,7 +73,7 @@ def main():
 		os.remove(source_fileName)
 		os.rename(destin_fileName,source_fileName)
 
-	print "Sensored the document : "+source_fileName
+	print "censored the document : "+source_fileName
 	#for debugging only
 	#print records
 	print len(records),"words removed."
